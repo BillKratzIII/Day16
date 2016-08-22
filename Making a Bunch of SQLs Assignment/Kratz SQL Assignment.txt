@@ -1,0 +1,145 @@
+William Kratz
+Making a bunch of SQLs Assignment
+8/22/16
+
+POPULATE TABLE WITH DATA
+-1. INSERT THREE DIFFERENT TEACHERS INTO THE TEACHER TABLE:
+
+INSERT INTO `so_much_sql`.`teacher`
+(`first_name`,
+`last_name`,
+`age`,
+`salary`)
+VALUES
+('Erin','Bergman',26,100000000),
+('John','Smith', 45, 50000),
+('Jane','Doe',59,62000);
+
+-2. INSERT TWO DIFFERENT CLASSES FOR EACH TEACHER IN THE CLASS TABLE
+
+INSERT INTO `so_much_sql`.`class`
+(`name`,
+`description`,
+`teacher_id`)
+VALUES
+('Algebra', 'Intro to Algebra', 1),
+('Geometry', 'Intro to Geometry', 1),
+('Biology', 'Intro to Biology', 2),
+('Chemistry', 'Intro to Chemistry', 2),
+('Psychology', 'Intro to Psychology', 3),
+('Sociology', 'Intro to Sociology', 3);
+
+-3. INSERT TEN STUDENTS IN THE STUDENT TABLE
+
+INSERT INTO `so_much_sql`.`student`
+(`first_name`,
+`last_name`,
+`grade`,
+`gpa`)
+VALUES
+('William','Kratz',12,3.500),
+('Keith','Gibson', 12, 3.600),
+('Mary', 'Ches', 12, 4.000),
+('Tucker','Allard', 11, 3.750),
+('Beth','Roche', 11, 3.400),
+('Adam', 'Berg', 11, 3.667),
+('Paul', 'R', 10, 3.700),
+('John', 'Pack', 10, 3.250),
+('Brendon', 'Krone', 10, 3.100),
+('John', 'Suchoki', 9, 3.900);
+
+LINKING TABLE
+-1. IN THE CLASSSTUDENT TABLE INSERT ROWS FOR EACH STUDENT.INSERT 1,2,OR 3 CLASSES FOR EACH STUDENT
+
+INSERT INTO `so_much_sql`.`class_student`
+(`class_id`,
+`student_id`)
+VALUES
+(1,1),
+(2,1),
+(3,1),
+(1,2),
+(2,2),
+(3,2),
+(1,3),
+(2,3),
+(3,3),
+(4,4),
+(5,4),
+(6,4),
+(4,5),
+(5,5),
+(6,5),
+(4,6),
+(5,6),
+(6,6),
+(1,7),
+(2,7),
+(3,7),
+(1,8),
+(2,8),
+(3,8),
+(1,9),
+(2,9),
+(3,9),
+(1,10),
+(2,10),
+(3,10);
+
+QUERY THE DATA
+-1. SELECT ALL TEACHERS
+
+SELECT * FROM so_much_sql.teacher;
+
+-2. SELECT ALL CLASSES
+
+SELECT * FROM so_much_sql.class;
+
+-3. SELECT ALL STUDENTS
+
+SELECT * FROM so_much_sql.student;
+
+-4. SELECT ALL CLASSES FOR TEACHER 1
+
+SELECT * FROM so_much_sql.class where teacher_id like 1;
+
+-5. SELECT ALL STUDENTS FOR CLASS 1 
+
+SELECT * FROM so_much_sql.class_student where class_id like 1;
+
+-6. SELECT ALL CLASSES FOR STUDENT 10
+
+SELECT * FROM so_much_sql.class_student where student_id like 1;
+
+-7. SELECT ALL STUDENTS WHO'S FIRST NAME STARTS WITH A 
+
+SELECT * FROM so_much_sql.student WHERE first_name like 'A%';
+
+UPDATE DATA
+-1. UPDATE TEACHER 1'S NAME TO SUPERMAN
+
+UPDATE `so_much_sql`.`teacher`
+SET
+`first_name` = 'Superman'
+WHERE `teacher_id` = 1;
+
+-2. UPDATE CLASS 1'S NAME TO UNDERWATER BASKET WEAVING
+
+UPDATE `so_much_sql`.`class`
+SET
+`name` = 'Underwater Basket Weaving'
+WHERE `class_id` = 1;
+
+-3. UPDATE STUDENT 1'S NAME TO WONDER WOMAN
+
+UPDATE `so_much_sql`.`student`
+SET
+`first_name` = 'Wonder',
+`last_name` = 'Woman'
+WHERE `student_id` = 1;
+
+DELETE DATA
+-1. DELETE STUDENT 10
+
+DELETE FROM `so_much_sql`.`student`
+WHERE student_id like 10;
